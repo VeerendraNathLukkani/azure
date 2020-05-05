@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Project Creation Request</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <style>
+
+  * {
+  box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+	border-color: coral;
+  float: left;
+  width: 50%;
+  padding: 10px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.col-sm-6{
+padding:1%
+}
+
+ .note
+{
+    text-align: center;
+    height: 80px;
+    background: -webkit-linear-gradient(left, #0072ff, #8811c5);
+    color: #fff;
+    font-weight: bold;
+    line-height: 80px;
+}
+.form-content
+{
+    padding: 2%;
+    border: 1px solid #ced4da;
+    margin-bottom: 2%;
+}
+.label-cls
+{
+    margin-left: 1%;
+  }
+.form-control{
+    border-radius:1.5rem;
+}
+.btn-group button {
+  background-color: #31708f; /* Green background */
+  border: 1px solid #c1b7b7; /* Green border */
+  color: white; /* White text */
+  padding: 10px 24px; /* Some padding */
+  cursor: pointer; /* Pointer/hand icon */
+  float: left; /* Float the buttons side by side */
+}
+
+/* Clear floats (clearfix hack) */
+.btn-group:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.btn-group button:not(:last-child) {
+  border-right: none; /* Prevent double borders */
+}
+
+/* Add a background color on hover */
+.btn-group button:hover {
+  background-color: #16a0e4;
+}
+
+  #snackbar {
+  visibility: hidden;
+  min-width: 250px;
+  margin-left: -125px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 2px;
+  padding: 16px;
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  bottom: 30px;
+  font-size: 17px;
+}
+
+#snackbar.show {
+  visibility: visible;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
+}
+.project-column{
+
+
+}
+
+		#loader {
+			border: 12px solid #f3f3f3;
+			border-radius: 50%;
+			border-top: 12px solid #444444;
+			width: 70px;
+			height: 70px;
+			animation: spin 1s linear infinite;
+		}
+
+		@keyframes spin {
+			100% {
+				transform: rotate(360deg);
+			}
+		}
+
+		.center {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			margin: auto;
+		}
+		.h2, h2{
+padding-top:2%;
+}
+
+  </style>
+</head>
+<body>
+<div class="container register-form">
+            <div class="form">
+                <div class="note">
+                    <h2>Project Creation Request</h2>
+                </div>
+
+                <div class="form-content">
+<div class="row">
+<div class="column project-column">
+<h4 style="text-align:center; font-weight: bold; text-decoration: underline">Project Form</h4>
+    <div class="col-md-12 form-group">
+	<label class="label-cls">Organisation Name *:</label>
+        <select class="form-control" id="organization_name">
+                <option class="hidden"  selected disabled>Organisation Name *</option>
+                <option>https://dev.azure.com/sx00562018</option>
+        </select>
+    </div>
+
+	                            <div class="col-md-12 form-group">
+								<label class="label-cls">Project Name * :</label>
+                                <input type="text" class="form-control" placeholder="Project Name *" id="project_name" onkeyup="sync()" value=""/>
+                            </div>
+                            <div class="col-md-12 form-group">
+								<label class="label-cls">Project Description  :</label>
+                                <input type="text" class="form-control" placeholder="Project Description " id="project_description" value=""/>
+                            </div>
+
+							                            <div class="col-md-12 form-group">
+											<label class="label-cls">Process Template :</label>
+                                            <select class="form-control" id="process_template">
+                                                <option class="hidden"  selected disabled>Process Template</option>
+                                                <option>Agile</option>
+                                                <option>Scrum</option>
+                                                <option>CMMI</option>
+												 <option>Basic</option>
+												  <option>SAFE Agile</option>
+                                            </select>
+                                        </div>
+
+										                            <div class="col-md-12 form-group">
+											<label class="label-cls">Version Control :</label>
+                                            <select class="form-control" id="version_control">
+                                                <option class="hidden"  selected disabled>Version Control</option>
+                                                <option>git</option>
+                                                <option>TFVC</option>
+
+                                            </select>
+                                        </div>
+                            <div class="col-md-12 form-group">
+											<label class="label-cls">Visibility :</label>
+                                            <select class="form-control" id="visibility">
+                                                <option class="hidden"  selected disabled>Visibility</option>
+                                                <option>private</option>
+                                                <option>public</option>
+
+                                            </select>
+                                        </div>
+	</div>
+
+	<div class="column">
+						<h4 style="text-align:center; font-weight: bold; text-decoration: underline">Pipeline Form</h4>
+
+<div class="col-md-12 form-group">
+	<label class="label-cls">Technology  template *:</label>
+        <select class="form-control" id="pipeline_file_path">
+            <option class="hidden"  selected disabled>Technology  template *</option>
+            <option>DotNet</option>
+            <option>Java</option>
+			<option>NodeJS</option>
+            <option>Container</option>
+            <option>K8s</option>
+        </select>
+    </div>
+<div class="col-md-12 form-group">
+								<label class="label-cls">Pipeline Name * :</label>
+                                <input type="text" class="form-control" placeholder="Pipeline Name *" id="pipeline_name" value=""/>
+                            </div>
+<div class="col-md-12 form-group">
+								<label class="label-cls">Pipeline Description  :</label>
+                                <input type="text" class="form-control" placeholder="Pipeline Description " id="pipeline_description" value=""/>
+                            </div>
+<div class="col-md-12 form-group">
+											<label class="label-cls">Repository Name :</label>
+                                <input type="text" class="form-control" placeholder="Repository Name" id="repository_name" value="" disabled/>
+                                            <!--<select class="form-control" id="repository_name">-->
+                                                <!--<option class="hidden"  selected disabled>Repository Name</option>-->
+                                                <!--<option>BS</option>-->
+
+
+                                            </select>
+</div>
+											<div class="col-md-12 form-group">
+											<label class="label-cls">Branch Name :</label>
+                                            <select class="form-control" id="branch_name">
+                                                <option class="hidden"  selected disabled>Branch Name</option>
+                                                <option>Master</option>
+
+
+                                            </select>
+                                        </div>
+<div class="col-md-12 form-group">
+											<label class="label-cls">Repository Type : </label>
+                                            <select class="form-control" id="repository_type">
+                                                <option class="hidden"  selected disabled>Repository Type</option>
+                                                <option>github</option>
+                                                <option>tfsgit</option>
+
+                                            </select>
+                                        </div>
+
+
+                    </div>
+					<div class="btn-group" style="width:100%;">
+                    <button type="button" class="btnSubmit" onclick="saveInputs()" style="width:33.3%">SAVE</button>
+					<button type="button" class="btnSubmit" onclick="runCMD()" style="width:33.3%">Submit</button>
+					<button type="button" class="btnSubmit" onclick="logData()" style="width:33.3%">LOGS</button>
+					</div>
+					<div>
+                </div>
+            </div>
+                    <div id="loader" class="center"></div>
+
+<div id="snackbar">Successfully generated variables file..</div>
+<script>
+var host_name = "52.170.190.73"
+<!--var host_name = "localhost"-->
+document.getElementById('loader').style.visibility = 'hidden';
+function runCMD(){
+document.getElementById('loader').style.visibility = 'visible';
+var xhr = new XMLHttpRequest();
+var url = "http://"+host_name+":5000/cmd";
+xhr.open("GET", url, true);
+xhr.onreadystatechange = function () {
+document.getElementById('loader').style.visibility = 'hidden';
+    if (xhr.readyState === 4 && xhr.status === 200) {
+        var json = JSON.parse(xhr.responseText);
+       window.alert("Process Done");
+;
+    }
+    else{
+    window.alert("Process Done");
+    }
+
+};
+
+xhr.send();
+
+}
+
+function logData(){
+document.getElementById('loader').style.visibility = 'visible';
+var xhr = new XMLHttpRequest();
+var url = "http://"+host_name+":5000/log";
+xhr.open("GET", url, true);
+xhr.onreadystatechange = function () {
+document.getElementById('loader').style.visibility = 'hidden';
+    if (xhr.readyState === 4 && xhr.status === 200) {
+
+     window.open("http://"+host_name+":5000/log");
+    }
+
+};
+
+xhr.send();
+
+}
+
+function saveInputs() {
+document.getElementById('loader').style.visibility = 'visible';
+
+	var project_name = document.getElementById("project_name").value;
+	var project_description = document.getElementById("project_description").value;
+
+	var v_control = document.getElementById("version_control");
+	var version_control = v_control.options[v_control.selectedIndex].text;
+	var visibility_1 = document.getElementById("visibility");
+	var visibility = visibility_1.options[visibility_1.selectedIndex].text;
+	var p_template = document.getElementById("process_template");
+	var process_template = p_template.options[p_template.selectedIndex].text;
+	if(process_template == "SAFE Agile"){
+	process_template = "SAFE Agile Process"
+	}
+	console.log(process_template)
+	var o_name = document.getElementById("organization_name");
+	var organization_name = o_name.options[o_name.selectedIndex].text;
+
+	var pipeline_name = document.getElementById("pipeline_name").value;
+	var pipeline_description = document.getElementById("pipeline_description").value;
+
+	var repository_name = document.getElementById("repository_name").value;
+	<!--var repository_name = r_name.options[r_name.selectedIndex].text;-->
+	var b_name = document.getElementById("branch_name");
+	var branch_name = b_name.options[b_name.selectedIndex].text;
+	var r_type = document.getElementById("repository_type");
+	var repository_type = r_type.options[r_type.selectedIndex].text;
+	var p_file_path = document.getElementById("pipeline_file_path");
+	var pipeline_file_path = p_file_path.options[p_file_path.selectedIndex].text;
+
+	if(pipeline_file_path == 'DotNet'){
+     pipeline_file_path = "dotnet_pipeline.yml"
+	}
+	else if(pipeline_file_path == 'Java'){
+    pipeline_file_path = "java_pipeline.yml"
+
+	}
+	else if(pipeline_file_path == 'NodeJS'){
+    pipeline_file_path = "nodejs_pipeline.yml"
+
+	}
+	else if(pipeline_file_path == 'Container'){
+    pipeline_file_path = "container_pipeline.yml"
+
+	}
+    else if(pipeline_file_path == 'K8s'){
+    pipeline_file_path = "k8s_pipeline.yml"
+
+	}
+
+
+var xhr = new XMLHttpRequest();
+var url = "http://"+host_name+":5000/save";
+xhr.open("POST", url, true);
+xhr.setRequestHeader("Content-Type", "application/json");
+xhr.onreadystatechange = function () {
+    document.getElementById('loader').style.visibility = 'hidden';
+
+    if (xhr.readyState === 4 && xhr.status === 200) {
+        var json = JSON.parse(xhr.responseText);
+        if(json.status == "success"){
+   var x = document.getElementById("snackbar");
+    x.className = "show";
+  setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+        console.log(json.status);
+        }
+    }
+};
+var data = JSON.stringify({"project_name": project_name, "project_description": project_description,
+"source_control": version_control, "visibility":visibility, "process_template":process_template, "organization":organization_name,
+ "pipeline_name":pipeline_name, "pipeline_description":pipeline_description, "repo_name":repository_name, "branch_name":branch_name,
+ "repo_type":repository_type, "pipeline_file_path":pipeline_file_path});
+xhr.send(data);
+
+
+
+	}
+
+
+	function sync()
+{
+  var project_name = document.getElementById("project_name");
+  var repository_name = document.getElementById("repository_name");
+  repository_name.value = project_name.value;
+}
+
+
+</script>
+		
+		
+</body>
+
+
+</html>

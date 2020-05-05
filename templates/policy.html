@@ -1,0 +1,60 @@
+<div class="container register-form">
+
+                            <div class="note">
+                    <h2>Approver Count Policy Creation Request</h2>
+                </div>
+
+<div class="column-policy project-column">
+    <!--<h4 style="text-align:center; font-weight: bold; text-decoration: underline">Policy Form</h4>-->
+
+    <div class="col-md-12 form-group">
+    <label class="label-cls">Action *:</label>
+          <select class="form-control" id="action_type" onchange="syncAction.call(this, event)">
+              <option selected>Create</option>
+              <option>Update</option>
+              <option>Delete</option>
+          </select>
+</div>
+
+<div class="col-md-12 form-group" id="branch_n_policy">
+
+    <label class="label-cls">Branch Name *:</label>
+          <select class="form-control" id="branch_name_policy">
+              <option class="hidden"  selected disabled>Branch Name</option>
+              <option>Master</option>
+          </select>
+</div>
+	                            <div class="col-md-12 form-group" id="id_policy">
+								<label class="label-cls">ID * :</label>
+                                <input type="text" class="form-control" placeholder="ID *"
+                                       id="id" value=""/>
+                            </div>
+
+	                            <div class="col-md-12 form-group" id="minimum_approver_count_div">
+								<label class="label-cls">Minimum Approver Count * :</label>
+                                <input type="number" class="form-control" placeholder="Minimum Approver Count *"
+                                       id="minimum_approver_count" value=""/>
+                            </div>
+
+    	                            <div class="col-md-12 form-group" id="policy_project_name_div">
+								<label class="label-cls">Project Name * :</label>
+                                <input type="text" class="form-control" placeholder="Project Name *" id="policy_project_name" value=""/>
+                            </div>
+
+       	                            <div class="col-md-12 form-group" id="policy_repository_id_div">
+								<label class="label-cls">Repository Id * :</label>
+                                <input type="text" class="form-control" placeholder="Repository Id *" id="policy_repository_id" value=""/>
+                            </div>
+
+
+</div>
+					<div class="btn-group" style="width:100%;">
+                    <!--<button type="button" class="btnSubmit" onclick="saveInputs()" style="width:33.3%">SAVE</button>-->
+					<button type="button" class="btnSubmit" onclick="policyOrCLIRunCMD()" style="width:49%">Submit</button>
+					<button type="button" class="btnSubmit" onclick="logData()" style="width:49%">LOGS</button>
+					</div>
+
+                         <!--<div id="loader" class="center" ></div>-->
+      <!--<h3>Menu 1</h3>-->
+      <!--<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>-->
+    </div>

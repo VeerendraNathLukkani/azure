@@ -1,0 +1,49 @@
+<div class="container register-form">
+
+                                    <div class="note">
+                    <h2>CLI Creation Request</h2>
+                                    </div>
+
+        <div class="col-md-12 form-group">
+	<label class="label-cls">Organisation Name *:</label>
+        <select class="form-control" id="organization_name_teams" onchange="projectTeamsAPI.call(this, event)">
+                <option class="hidden"  selected disabled>Organisation Name *</option>
+            {% for organization in data %}
+
+                <option id={{ organization.name }}>{{ organization.url }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+       <div class="col-md-12 form-group">
+
+    <label class="label-cls">Project Name *:</label>
+                                            <select class="form-control" id="project_name_teams" >
+                                                <option class="hidden"  selected disabled>Project Name *</option>
+                                            </select>
+
+    </div>
+
+<div class="column-policy project-column">
+
+<!--<h4 style="text-align:center; font-weight: bold; text-decoration: underline">CLI Form</h4>-->
+
+  <div class="col-md-12 form-group">
+								<label class="label-cls">Team Name * :</label>
+                                <input type="text" class="form-control" placeholder="Team Name *" id="team_name" value=""/>
+                            </div>
+    	                            <div class="col-md-12 form-group">
+								<label class="label-cls">Team Description * :</label>
+                                <input type="text" class="form-control" placeholder="Team Description *" id="team_description" value=""/>
+                            </div>
+
+
+					<div class="btn-group" style="width:100%;">
+                    <!--<button type="button" class="btnSubmit" onclick="#" style="width:33.3%">SAVE</button>-->
+					<button type="button" class="btnSubmit" onclick="teamsCLIRunCMD()" style="width:49%">Submit</button>
+					<button type="button" class="btnSubmit" onclick="logData()" style="width:49%">LOGS</button>
+					</div>
+
+                                 <!--<div id="loader" class="center" ></div>-->
+                </div>
+    </div>
