@@ -8,15 +8,15 @@ app = Flask(__name__)
 api = Api(app)
 
 
-# class Index(Resource):
-#     def get(self):
-#         headers = {'Content-Type': 'text/html'}
-#         response_data = azureDevopsCalls.get_organizations()
-#         print(response_data)
-#         response_data = response_data['dataProviders']['ms.vss-features.my-organizations-data-provider']['organizations']
-#         print(response_data)
-#
-#         return make_response(render_template('home.html', data=response_data), 200, headers)
+class Index(Resource):
+    def get(self):
+        headers = {'Content-Type': 'text/html'}
+        response_data = azureDevopsCalls.get_organizations()
+        print(response_data)
+        response_data = response_data['dataProviders']['ms.vss-features.my-organizations-data-provider']['organizations']
+        print(response_data)
+
+        return make_response(render_template('home.html', data=response_data), 200, headers)
 
 
 # API for Process template
@@ -147,7 +147,7 @@ class Teams(Resource):
         return azureDevopsCalls.create_team(data['organization'], data['project_id'], data['request_data'])
 
 
-# api.add_resource(Index, '/')
+api.add_resource(Index, '/')
 api.add_resource(Save, '/save')
 api.add_resource(PolicyOrCLIRun, '/policyorclirun')
 api.add_resource(CLIRun, '/clirun')
